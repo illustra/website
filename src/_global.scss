@@ -1,0 +1,49 @@
+// Fonts
+@font-face {
+    font-family: "Roboto Black";
+    src: url(/assets/roboto-black.ttf);
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(/assets/roboto.ttf);
+}
+
+// Mixins
+@mixin center {
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+}
+
+// HTML and body
+html {
+    background-color: black;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0px;
+}
+
+// Buttons
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #373e40;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+}
+
+// Image alt text
+img {
+    color: white;
+    font-family: "Roboto";
+}
