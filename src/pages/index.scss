@@ -1,4 +1,54 @@
 @import "../global";
 
+@import "./textLogoAnimation";
+
 #index {
+    .intro {
+        width: 100%;
+        height: 100vh;
+
+        #Layer_1 {
+            width: 80%;
+            min-width: 60%;
+            height: auto;
+            margin-top: 50vh;
+            margin-bottom: -25vh;
+            margin-left: 50%;
+            transform: translate(-50%, -25vh);
+
+            &.no-animation {
+                width: calc(70% - 300px);
+            }
+
+            &:not(.no-animation) {
+                @include textLogoAnimation;
+            }
+        }
+
+        .description {
+            width: 80%;
+            color: #574ae2;
+            font-family: "Roboto";
+            font-size: 30px;
+            text-align: center;
+            @include center;
+
+            &:not(.no-animation) {
+                display: inline-block;
+                opacity: 0;
+                animation: description 1s 6s ease-out forwards;
+
+                @keyframes description {
+                    100% {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            span {
+                color: #f63e70;
+                margin: 0px 35px;
+            }
+        }
+    }
 }
