@@ -1,18 +1,32 @@
 // Fonts
 @font-face {
-    font-family: "Roboto Black";
-    src: url(/assets/roboto-black.ttf);
+    font-family: "Apercu Pro Black";
+    src: url(/assets/apercu-pro-black.ttf);
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url(/assets/roboto.ttf);
+    font-family: "Apercu Pro";
+    src: url(/assets/apercu-pro.ttf);
+}
+
+@font-face {
+    font-family: "Apercu Pro Mono";
+    src: url(/assets/apercu-pro-mono.ttf);
 }
 
 // Mixins
 @mixin center {
     margin-left: 50%;
     transform: translate(-50%, 0);
+}
+
+// Variables
+:root {
+    --background-color: #252550;
+
+    --primary-color: #574ae2;
+    --accent-color: #f63e70;
+    --text-color: #7c72eb;
 }
 
 // HTML and body
@@ -35,6 +49,7 @@ button {
 // Scrollbar
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
     background-color: #373e40;
 }
 
@@ -45,5 +60,5 @@ button {
 // Image alt text
 img {
     color: white;
-    font-family: "Roboto";
+    font-family: "Apercu Pro";
 }
