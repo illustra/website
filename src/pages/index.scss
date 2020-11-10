@@ -3,51 +3,137 @@
 @import "./textLogoAnimation";
 
 #index {
-    .intro {
+    .animation {
+        position: fixed;
         width: 100%;
         height: 100vh;
+        top: 0px;
+        left: 0px;
+        background-color: black;
+        z-index: 200;
+        animation: animationFade 1s 5s ease-out forwards;
 
-        #Layer_1 {
-            width: 80%;
-            min-width: 60%;
-            height: auto;
-            margin-top: 50vh;
-            margin-bottom: -25vh;
-            margin-left: 50%;
-            transform: translate(-50%, -25vh);
-
-            &.no-animation {
-                width: calc(70% - 300px);
-            }
-
-            &:not(.no-animation) {
-                @include textLogoAnimation;
+        @keyframes animationFade {
+            100% {
+                opacity: 0;
             }
         }
 
-        .description {
+        #Layer_1 {
             width: 80%;
-            color: #574ae2;
-            font-family: "Roboto";
-            font-size: 30px;
-            text-align: center;
-            @include center;
+            max-width: 80%;
+            height: auto;
+            margin-top: 45vh;
+            margin-bottom: -25vh;
+            margin-left: 50%;
+            transform: translate(-50%, -25vh);
+            @include textLogoAnimation;
+        }
+    }
 
-            &:not(.no-animation) {
-                display: inline-block;
-                opacity: 0;
-                animation: description 1s 6s ease-out forwards;
+    .intro-wrapper {
+        display: flex;
+        width: 100%;
+        height: calc(100vh - 65px);
+        flex-wrap: nowrap;
+        margin-top: 65px;
 
-                @keyframes description {
-                    100% {
-                        opacity: 1;
+        @media screen and (max-width: 1020px) {
+            height: calc(200vh - 65px);
+
+            flex-direction: column;
+        }
+
+        .intro {
+            display: flex;
+            width: 50%;
+            height: 100%;
+            align-items: center;
+
+            @media screen and (max-width: 1020px) {
+                width: 100%;
+            }
+
+            .intro-content {
+                width: 100%;
+
+                .title {
+                    display: inline-block;
+                    color: #cac5ff;
+                    font-family: "Apercu Pro";
+                    font-size: 85px;
+                    margin: auto;
+                    @include center;
+                }
+
+                .description {
+                    color: white;
+                    font-family: "Apercu Pro";
+                    font-size: 24px;
+                    text-align: center;
+                    margin: 0px;
+                    margin-top: 15px;
+                    @include center;
+
+                    @media screen and (max-width: 1020px) {
+                        width: 80%;
+                    }
+                }
+
+                .buttons {
+                    display: flex;
+                    width: 90%;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 15vh;
+                    @include center;
+
+                    @media screen and (max-width: 475px) {
+                        flex-direction: column;
+                    }
+
+                    .main-button {
+                        color: white;
+                        font-family: "Apercu Pro";
+                        font-size: 20px;
+                        text-decoration: none;
+                        background-color: var(--primary-color);
+                        border-radius: 5px;
+                        padding: 10px 20px;
+                        margin: 0px 35px;
+                        transition: 0.25s;
+
+                        &:hover {
+                            box-shadow: 4px -4px 0px 0px var(--accent-color);
+                        }
+                    }
+
+                    .button {
+                        color: var(--text-color);
+                        font-family: "Apercu Pro";
+                        font-size: 20px;
+                        text-decoration: none;
+                        margin: 15px 0px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: var(--accent-color);
+                        }
                     }
                 }
             }
+        }
 
-            span {
-                color: #f63e70;
-                margin: 0px 35px;
+        .code-sample {
+            display: flex;
+            width: 50%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+
+            @media screen and (max-width: 1020px) {
+                width: 100%;
             }
         }
     }
