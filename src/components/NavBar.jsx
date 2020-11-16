@@ -14,7 +14,7 @@ export default () => {
             <div className="bar">
                 <a href="/docs" className="nav-bar-button">Docs</a>
                 <a href="/guides" className="nav-bar-button">Guides</a>
-                <a href="/github" className="nav-bar-button">GitHub</a>
+                <a href="/github" className="nav-bar-button" target="_blank">GitHub</a>
             </div>
 
             <div className={`menu-button ${menuOpen && "open"}`} onClick={() => setMenuOpen(!menuOpen)}>
@@ -39,7 +39,7 @@ export default () => {
                         <p className="button-text">Guides</p>
                     </a>
 
-                    <a href="/github" className="github-icon"><img src="/assets/github.svg" alt="GitHub logo" /></a>
+                    <a href="/github" className="github-icon" target="_blank"><img src="/assets/github.svg" alt="GitHub logo" /></a>
 
                 </div>
 
