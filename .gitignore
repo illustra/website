@@ -1,6 +1,12 @@
 # Node modules
 node_modules/
 
-# Gatsby
-.cache/
-public
+# Env
+.env
+
+# SSL Certificate
+public.pem
+private.key
+
+# Next.JS
+.next

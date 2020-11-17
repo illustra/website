@@ -1,7 +1,7 @@
 import React from "react";
 import "./horizontalComponent.scss";
 
-export default props => (
+const HorizontalComponent = props => (
     <div id="horizontal-component" className={props.reflected && "reflected"}>
 
         <div className="half">{props.left}</div>
@@ -9,3 +9,5 @@ export default props => (
 
     </div>
 );
+
+export default HorizontalComponent;

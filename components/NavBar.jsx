@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./navBar.scss";
 
-export default () => {
+const NavBar = () => {
 
     // Menu open
     const [menuOpen, setMenuOpen] = useState(false);
@@ -48,3 +48,5 @@ export default () => {
         </div>
     );
 };
+
+export default NavBar;

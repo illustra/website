@@ -4,21 +4,19 @@
     "description": "The Illustra website",
     "version": "0.1.0",
     "scripts": {
-        "build": "gatsby build",
-        "develop": "gatsby develop",
-        "serve": "gatsby serve",
-        "clean": "gatsby clean",
-        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+        "dev": "nodemon index",
+        "build": "next build",
+        "start": "next start"
     },
     "dependencies": {
-        "gatsby": "^2.24.91",
-        "gatsby-plugin-react-helmet": "^3.3.14",
-        "gatsby-plugin-sass": "^2.3.22",
+        "@zeit/next-css": "^1.0.1",
+        "@zeit/next-sass": "^1.0.1",
+        "dotenv": "^8.2.0",
         "highlight.js": "^10.3.2",
+        "next": "^10.0.1",
         "node-sass": "^4.14.1",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
-        "react-helmet": "^6.1.0",
         "react-inlinesvg": "^2.1.1"
     },
     "repository": {

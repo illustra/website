@@ -3,6 +3,11 @@
 @import "./textLogoAnimation";
 
 #index {
+    &.logo-animating {
+        height: 100vh;
+        overflow-y: hidden;
+    }
+
     .animation {
         position: fixed;
         width: 100%;

@@ -5,7 +5,7 @@ import "highlight.js/styles/dracula.css";
 import "./codeblock.scss";
 highlightjs.registerLanguage("javascript", javascript);
 
-export default props => (
+const Codeblock = props => (
     <div id="codeblock" style={{ width: props.width }}>
 
         <div className="title-bar">
@@ -26,3 +26,5 @@ export default props => (
 
     </div>
 );
+
+export default Codeblock;

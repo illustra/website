@@ -1,8 +1,8 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import NextHead from "next/head";
 
-export default props => (
-    <Helmet>
+const Head = props => (
+    <NextHead>
 
         <title>{props.title}</title>
         <meta name="description" content={props.description} />
@@ -14,5 +14,7 @@ export default props => (
 
         {props.redirect && <meta httpEquiv="refresh" content={`0; url=${props.redirect}`} />}
 
-    </Helmet>
+    </NextHead>
 );
+
+export default Head;

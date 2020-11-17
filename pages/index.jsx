@@ -4,10 +4,9 @@ import Head from "../components/Head";
 import NavBar from "../components/NavBar";
 import HorizontalComponent from "../components/HorizontalComponent";
 import Codeblock from "../components/Codeblock";
-import TextLogo from "../../static/assets/text-logo.svg";
 import "./index.scss";
 
-export default () => {
+const Index = () => {
 
     // Text logo animated
     const [textLogoAnimated, setTextLogoAnimated] = useState(false);
@@ -25,11 +24,11 @@ export default () => {
         localStorage.setItem("textLogoAnimated", true);
 
         // Hide text logo animated
-        if (!thisSetTextLogoAnimated) setTimeout(() => setTextLogoAnimated(true), 7000);
+        if (!thisSetTextLogoAnimated) setTimeout(() => setTextLogoAnimated(true), 6000);
     }, []);
 
     return (
-        <div id="index">
+        <div id="index" className={!textLogoAnimated && "logo-animating"}>
 
             <Head
                 title="Illustra"
@@ -39,7 +38,7 @@ export default () => {
 
             {!textLogoAnimated && (
                 <div className="animation">
-                    <InlineSVG src={TextLogo} />
+                    <InlineSVG src="/assets/text-logo.svg" />
                 </div>
             )}
 
@@ -157,3 +156,5 @@ export default () => {
         </div>
     );
 };
+
+export default Index;
