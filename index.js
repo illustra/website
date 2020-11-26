@@ -25,6 +25,9 @@
             // Parse URL
             const url = parseURL(req.url, true);
 
+            // Docs
+            if (/docs\/(.*)/.test(url.pathname)) return app.render(req, res, "/docs", url.query);
+
             // Handle reqest
             handler(req, res, url);
         }

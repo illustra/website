@@ -4,7 +4,7 @@
     "description": "The Illustra website",
     "version": "0.1.0",
     "scripts": {
-        "dev": "nodemon index",
+        "dev": "node index",
         "build": "next build",
         "start": "next start"
     },
@@ -14,6 +14,7 @@
         "dotenv": "^8.2.0",
         "highlight.js": "^10.3.2",
         "next": "^10.0.1",
+        "node-fetch": "^2.6.1",
         "node-sass": "^4.14.1",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
