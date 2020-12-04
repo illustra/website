@@ -3,6 +3,9 @@ import parseType from "../type";
 
 const parseMethod = targetModule => {
 
+    // Inherited
+    if (targetModule.inheritedFrom) return;
+
     // Define data
     const data = {
         name: targetModule.name,

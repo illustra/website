@@ -1,6 +1,6 @@
 @import "../global";
 
-#docs-sidebar-icon {
+#type-icon {
     width: 25px;
     height: 25px;
     background-color: #303070;
@@ -14,5 +14,16 @@
         margin: auto;
         margin-top: 5px;
         transform: rotate(-15deg);
+    }
+
+    &.large {
+        width: 35px;
+        height: 35px;
+
+        .letter {
+            font-size: 28px;
+            margin-top: 4px;
+            margin-left: 7px;
+        }
     }
 }
