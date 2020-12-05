@@ -11,6 +11,7 @@
         color: var(--accent-color);
         font-family: "Apercu Pro Bold";
         font-size: 18px;
+        text-align: center;
         margin: auto;
         margin-top: 5px;
         transform: rotate(-15deg);
@@ -22,8 +23,6 @@
 
         .letter {
             font-size: 28px;
-            margin-top: 4px;
-            margin-left: 7px;
         }
     }
 }

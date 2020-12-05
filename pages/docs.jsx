@@ -133,11 +133,11 @@ const Docs = () => {
                     <div className="divider" />
 
                     {docsType === "class" && (
-                        <>
+                        <div className="class">
 
                             <div className="table-of-contents">
 
-                                <div className="section">
+                                <div className="table-of-contents-section">
 
                                     <div className="name" onClick={() => setJump("properties")}><p className="text">Properties</p></div>
 
@@ -149,7 +149,7 @@ const Docs = () => {
 
                                 </div>
 
-                                <div className="section">
+                                <div className="table-of-contents-section">
 
                                     <div className="name" onClick={() => setJump("methods")}><p className="text">Methods</p></div>
 
@@ -163,7 +163,7 @@ const Docs = () => {
 
                             </div>
 
-                            <div className="class-section">
+                            <div className="section">
 
                                 <p className="name">Properties</p>
 
@@ -184,7 +184,7 @@ const Docs = () => {
 
                             </div>
 
-                            <div className="class-section">
+                            <div className="section">
 
                                 <p className="name">Methods</p>
 
@@ -223,7 +223,34 @@ const Docs = () => {
 
                             </div>
 
-                        </>
+                        </div>
+                    )}
+
+                    {docsType === "interface" && (
+                        <div className="interface">
+
+                            <div className="section">
+
+                                <p className="name">Properties</p>
+
+                                {docsData.properties.filter(p => !p.private).map(p => (
+                                    <div className="property">
+
+                                        <div className="property-name">
+                                            <p className="section-item-name" onClick={() => setJump(p.name)}><span>{docsData.name}</span>.{p.name}</p>
+                                            <p className="type">{typeString(p.type)}</p>
+                                        </div>
+
+                                        <div className="section-content">
+                                            <ReactMarkdown source={p.comment} className="comment" />
+                                        </div>
+
+                                    </div>
+                                ))}
+
+                            </div>
+
+                        </div>
                     )}
 
                 </div>

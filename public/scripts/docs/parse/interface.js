@@ -4,12 +4,11 @@ const parseInterface = targetModule => {
 
     // Define data
     const data = {
-        name: targetModule.name,
-        data: []
+        name: targetModule.name
     };
 
-    // Parse data
-    data.data = targetModule.children.map(d => ({
+    // Parse properties
+    data.properties = targetModule.children.map(d => ({
         name: d.name,
         optional: d.flags.isOptional,
         type: parseType(d.type)
