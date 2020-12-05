@@ -40,12 +40,10 @@ const DocsSidebar = props => {
 
                     <p className="pages-title">Functions</p>
 
-                    {props.docs.functions.map(f => (
-                        <button onClick={() => props.setPath(`/functions/${f.name}`)}><div className="page">
-                            <TypeIcon letter="F" />
-                            <p className="name">{f.name}</p>
-                        </div></button>
-                    ))}
+                    <button onClick={() => props.setPath("/functions")}><div className="page">
+                        <TypeIcon letter="F" />
+                        <p className="name">Functions</p>
+                    </div></button>
 
                     <p className="pages-title">Interfaces</p>
 

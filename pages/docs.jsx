@@ -24,7 +24,7 @@ const Docs = () => {
         // Get docs type
         let thisDocsType;
         if (path.startsWith("/classes/")) thisDocsType = "class";
-        else if (path.startsWith("/functions/")) thisDocsType = "function";
+        else if (path.startsWith("/functions")) thisDocsType = "functions";
         else if (path.startsWith("/interfaces/")) thisDocsType = "interface";
         else if (path.startsWith("/typeAliases")) thisDocsType = "typeAliases";
 
@@ -34,7 +34,7 @@ const Docs = () => {
         if (parsedPath) parsedPath = parsedPath.split("#")[0];
 
         if (thisDocsType === "class") thisDocsData = parsedDocs.classes.find(c => c.name === parsedPath);
-        else if (thisDocsType === "function") thisDocsData = parsedDocs.functions.find(i => i.name === parsedPath);
+        else if (thisDocsType === "functions") thisDocsData = parsedDocs.functions;
         else if (thisDocsType === "interface") thisDocsData = parsedDocs.interfaces.find(i => i.name === parsedPath);
         else if (thisDocsType === "typeAliases") thisDocsData = parsedDocs.typeAliases;
 
@@ -122,7 +122,9 @@ const Docs = () => {
 
                         <div className="title-text">
 
-                            <h2 className="text">{docsData.name || "Type Aliases"}</h2>
+                            {docsData.name && <h2 className="text">{docsData.name}</h2>}
+                            {docsType === "functions" && <h2 className="text">Functions</h2>}
+                            {docsType === "typeAliases" && <h2 className="text">Type Aliases</h2>}
 
                             {docsData.extends && (
                                 <p className="extends"><span>Extends</span> {typeString(docsData.extends)}</p>
@@ -215,6 +217,51 @@ const Docs = () => {
                                                 <>
                                                     <p className="returns"><span className="highlight">Returns</span> {typeString(m.returnType)}</p>
                                                     <ReactMarkdown source={m.returnComment} className="comment small" />
+                                                </>
+                                            )}
+
+                                        </div>
+
+                                    </div>
+                                ))}
+
+                            </div>
+
+                        </div>
+                    )}
+
+                    {docsType === "functions" && (
+                        <div className="functions">
+
+                            <div className="section">
+
+                                <p className="name">Functions</p>
+
+                                {docsData.map(f => (
+                                    <div className="method">
+
+                                        <p className="section-item-name" onClick={() => setJump(f.name)}>{f.name}({f.parameters.length ? f.parameters.map(p => <span className="name-parameter">{p.name}{p.optional ? "?" : ""}</span>).reduce((e, acc) => [e, ", ", acc]) : null})</p>
+
+                                        <div className="section-content">
+
+                                            <ReactMarkdown source={f.comment} className="comment" />
+
+                                            <div className="parameters">
+                                                {f.parameters.map(p => (
+                                                    <div className="parameter">
+                                                        <div className="parameter-title">
+                                                            <p className="parameter-name">{p.name}{p.optional ? "?" : ""}</p>
+                                                            <p className="type">{typeString(p.type)}</p>
+                                                        </div>
+                                                        <ReactMarkdown source={p.comment} className="comment small" />
+                                                    </div>
+                                                ))}
+                                            </div>
+
+                                            {f.returnType && (
+                                                <>
+                                                    <p className="returns"><span className="highlight">Returns</span> {typeString(f.returnType)}</p>
+                                                    <ReactMarkdown source={f.returnComment} className="comment small" />
                                                 </>
                                             )}
 
