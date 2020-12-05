@@ -12,7 +12,8 @@ const parseParameters = inputParameters => {
         parameters.push({
             name: p.name,
             type: parseType(p.type),
-            comment: p.comment && p.comment.shortText
+            comment: p.comment && p.comment.shortText,
+            optional: p.flags.isOptional
         });
     });
 

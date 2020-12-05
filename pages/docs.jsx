@@ -171,7 +171,7 @@ const Docs = () => {
                                     <div className="property">
 
                                         <div className="property-name">
-                                            <p className="section-item-name" onClick={() => setJump(p.name)}><span>{docsData.name}</span>.{p.name}</p>
+                                            <p className="section-item-name" onClick={() => setJump(p.name)}><span>{docsData.name}</span>.{p.name}{p.optional ? "?" : ""}</p>
                                             <p className="type">{typeString(p.type)}</p>
                                         </div>
 
@@ -191,7 +191,7 @@ const Docs = () => {
                                 {docsData.methods.filter(m => !m.private).map(m => (
                                     <div className="method">
 
-                                        <p className="section-item-name" onClick={() => setJump(m.name)}><span>{docsData.name}</span>.{m.name}({m.parameters.length ? m.parameters.map(p => <span className="name-parameter">{p.name}</span>).reduce((e, acc) => [e, ", ", acc]) : null})</p>
+                                        <p className="section-item-name" onClick={() => setJump(m.name)}><span>{docsData.name}</span>.{m.name}({m.parameters.length ? m.parameters.map(p => <span className="name-parameter">{p.name}{p.optional ? "?" : ""}</span>).reduce((e, acc) => [e, ", ", acc]) : null})</p>
 
                                         <div className="section-content">
 
@@ -201,8 +201,8 @@ const Docs = () => {
                                                 {m.parameters.map(p => (
                                                     <div className="parameter">
                                                         <div className="parameter-title">
-                                                            <p className="parameter-name">{p.name} </p>
-                                                            <p className="type">{typeString(p.type)} </p>
+                                                            <p className="parameter-name">{p.name}{p.optional ? "?" : ""}</p>
+                                                            <p className="type">{typeString(p.type)}</p>
                                                         </div>
                                                         <ReactMarkdown source={p.comment} className="comment small" />
                                                     </div>
@@ -237,7 +237,7 @@ const Docs = () => {
                                     <div className="property">
 
                                         <div className="property-name">
-                                            <p className="section-item-name" onClick={() => setJump(p.name)}><span>{docsData.name}</span>.{p.name}</p>
+                                            <p className="section-item-name" onClick={() => setJump(p.name)}><span>{docsData.name}</span>.{p.name}{p.optional ? "?" : ""}</p>
                                             <p className="type">{typeString(p.type)}</p>
                                         </div>
 

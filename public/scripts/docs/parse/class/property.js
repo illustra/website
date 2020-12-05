@@ -10,6 +10,7 @@ const parseProperty = targetModule => {
         name: targetModule.name,
         comment: targetModule.comment.text.trim(),
         type: parseType(targetModule.type),
+        optional: targetModule.flags.isOptional,
         private: targetModule.name.startsWith("_")
     };
 };
