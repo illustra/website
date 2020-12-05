@@ -26,15 +26,17 @@ const Docs = () => {
         if (path.startsWith("/classes/")) thisDocsType = "class";
         else if (path.startsWith("/functions/")) thisDocsType = "function";
         else if (path.startsWith("/interfaces/")) thisDocsType = "interface";
-        else if (path.startsWith("/typeAliases/")) thisDocsType = "typeAlias";
+        else if (path.startsWith("/typeAliases")) thisDocsType = "typeAliases";
 
         // Get docs data
         let thisDocsData;
-        const parsedPath = path.split("/")[2].split("#")[0];
+        let parsedPath = path.split("/")[2];
+        if (parsedPath) parsedPath = parsedPath.split("#")[0];
+
         if (thisDocsType === "class") thisDocsData = parsedDocs.classes.find(c => c.name === parsedPath);
         else if (thisDocsType === "function") thisDocsData = parsedDocs.functions.find(i => i.name === parsedPath);
         else if (thisDocsType === "interface") thisDocsData = parsedDocs.interfaces.find(i => i.name === parsedPath);
-        else if (thisDocsType === "typeAlias") thisDocsData = parsedDocs.typeAliases.find(i => i.name === parsedPath);
+        else if (thisDocsType === "typeAliases") thisDocsData = parsedDocs.typeAliases;
 
         console.log(thisDocsData);
 
@@ -67,8 +69,8 @@ const Docs = () => {
 
         // Custom type
         if (docs.classes.find(c => c.name === type)) return <p className="type-link" onClick={() => setPath(`/classes/${type}`)}>{type}</p>;
-        else if (docs.interfaces.find(c => c.name === type)) return <p className="type-link" onClick={() => setPath(`/interface/${type}`)}>{type}</p>;
-        else if (docs.typeAliases.find(c => c.name === type)) return <p className="type-link" onClick={() => setPath(`/typeAlias/${type}`)}>{type}</p>;
+        else if (docs.interfaces.find(c => c.name === type)) return <p className="type-link" onClick={() => setPath(`/interfaces/${type}`)}>{type}</p>;
+        else if (docs.typeAliases.find(c => c.name === type)) return <p className="type-link" onClick={() => setPath(`/typeAliases#${type}`)}>{type}</p>;
     };
 
     // Type string
@@ -120,7 +122,7 @@ const Docs = () => {
 
                         <div className="title-text">
 
-                            <h2 className="text">{docsData.name}</h2>
+                            <h2 className="text">{docsData.name || "Type Aliases"}</h2>
 
                             {docsData.extends && (
                                 <p className="extends"><span>Extends</span> {typeString(docsData.extends)}</p>
@@ -243,6 +245,29 @@ const Docs = () => {
 
                                         <div className="section-content">
                                             <ReactMarkdown source={p.comment} className="comment" />
+                                        </div>
+
+                                    </div>
+                                ))}
+
+                            </div>
+
+                        </div>
+                    )}
+
+                    {docsType === "typeAliases" && (
+                        <div className="type-aliases">
+
+                            <div className="section">
+
+                                <p className="name">Type Aliases</p>
+
+                                {docsData.map(ta => (
+                                    <div className="property">
+
+                                        <div className="property-name">
+                                            <p className="section-item-name" onClick={() => setJump(ta.name)}><span>{ta.name}</span></p>
+                                            <p className="type">{typeString(ta.type)}</p>
                                         </div>
 
                                     </div>

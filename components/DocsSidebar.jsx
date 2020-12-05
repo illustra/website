@@ -58,12 +58,10 @@ const DocsSidebar = props => {
 
                     <p className="pages-title">Type Aliases</p>
 
-                    {props.docs.typeAliases.map(ta => (
-                        <button onClick={() => props.setPath(`/typeAliases/${ta.name}`)}><div className="page">
-                            <TypeIcon letter="T" />
-                            <p className="name">{ta.name}</p>
-                        </div></button>
-                    ))}
+                    <button onClick={() => props.setPath("/typeAliases")}><div className="page">
+                        <TypeIcon letter="T" />
+                        <p className="name">Type Aliases</p>
+                    </div></button>
 
                 </div>
             )}
