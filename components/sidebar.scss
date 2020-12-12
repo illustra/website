@@ -1,6 +1,6 @@
 @import "../global";
 
-#docs-sidebar {
+#sidebar {
     position: fixed;
     width: 350px;
     height: calc(100vh - 65px);
@@ -19,6 +19,7 @@
     }
 
     .sidebar-title {
+        display: inline-block;
         color: var(--accent-color);
         font-family: "Apercu Pro Bold";
         font-size: 24px;
@@ -77,7 +78,7 @@
 
         flex-direction: column;
 
-        .pages-title {
+        .sidebar-section-title {
             width: 80%;
             color: var(--text-color);
             font-family: "Apercu Pro";
@@ -86,10 +87,11 @@
             margin-left: calc(10% + 10px);
         }
 
-        button {
+        a, button {
+            text-decoration: none;
             padding: 0px;
 
-            .page {
+            .sidebar-item {
                 display: flex;
                 width: 80%;
                 flex-wrap: nowrap;
@@ -100,6 +102,12 @@
 
                 &:hover {
                     background-color: #ffffff15;
+                }
+
+                .icon {
+                    width: auto;
+                    height: 20px;
+                    margin-top: 2px;
                 }
 
                 .name {

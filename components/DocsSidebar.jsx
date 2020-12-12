@@ -1,71 +1,49 @@
-import React, { useState } from "react";
+import React from "react";
+import Sidebar from "./Sidebar";
 import TypeIcon from "./TypeIcon";
-import "./docsSidebar.scss";
 
-const DocsSidebar = props => {
+const DocsSidebar = props => (
+    <Sidebar
+        title="Documentation"
+        content={props.docs && (
+            <>
 
-    // Sidebar open
-    const [sidebarOpen, setSidebarOpen] = useState(false);
+                <p className="sidebar-section-title">Classes</p>
 
-    // Search
-    const search = input => {
-
-        //
-    };
-
-    return (
-        <div id="docs-sidebar" className={sidebarOpen && "open"}>
-
-            <p className="sidebar-title">Documentation</p>
-
-            <div className="divider" />
-
-            <div className="search">
-                <p className="search-title">Search</p>
-                <input type="text" className="search-bar" onInput={e => search(e.target.value)} />
-            </div>
-
-            {props.docs && (
-                <div className="pages">
-
-                    <p className="pages-title">Classes</p>
-
-                    {props.docs.classes.map(c => (
-                        <button onClick={() => props.setPath(`/classes/${c.name}`)}><div className="page">
-                            <TypeIcon letter="C" />
-                            <p className="name">{c.name}</p>
-                            <img src="/assets/expand.svg" className="expand" />
-                        </div></button>
-                    ))}
-
-                    <p className="pages-title">Functions</p>
-
-                    <button onClick={() => props.setPath("/functions")}><div className="page">
-                        <TypeIcon letter="F" />
-                        <p className="name">Functions</p>
+                {props.docs.classes.map(c => (
+                    <button onClick={() => props.setPath(`/classes/${c.name}`)}><div className="sidebar-item">
+                        <TypeIcon letter="C" />
+                        <p className="name">{c.name}</p>
+                        <img src="/assets/expand.svg" className="expand" />
                     </div></button>
+                ))}
 
-                    <p className="pages-title">Interfaces</p>
+                <p className="sidebar-section-title">Functions</p>
 
-                    {props.docs.interfaces.map(i => (
-                        <button onClick={() => props.setPath(`/interfaces/${i.name}`)}><div className="page">
-                            <TypeIcon letter="I" />
-                            <p className="name">{i.name}</p>
-                        </div></button>
-                    ))}
+                <button onClick={() => props.setPath("/functions")}><div className="sidebar-item">
+                    <TypeIcon letter="F" />
+                    <p className="name">Functions</p>
+                </div></button>
 
-                    <p className="pages-title">Type Aliases</p>
+                <p className="sidebar-section-title">Interfaces</p>
 
-                    <button onClick={() => props.setPath("/typeAliases")}><div className="page">
-                        <TypeIcon letter="T" />
-                        <p className="name">Type Aliases</p>
+                {props.docs.interfaces.map(i => (
+                    <button onClick={() => props.setPath(`/interfaces/${i.name}`)}><div className="sidebar-item">
+                        <TypeIcon letter="I" />
+                        <p className="name">{i.name}</p>
                     </div></button>
+                ))}
 
-                </div>
-            )}
+                <p className="sidebar-section-title">Type Aliases</p>
 
-        </div>
-    );
-};
+                <button onClick={() => props.setPath("/typeAliases")}><div className="sidebar-item">
+                    <TypeIcon letter="T" />
+                    <p className="name">Type Aliases</p>
+                </div></button>
+
+            </>
+        )}
+    />
+);
 
 export default DocsSidebar;
