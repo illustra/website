@@ -38,8 +38,6 @@ const Docs = () => {
         else if (thisDocsType === "interface") thisDocsData = parsedDocs.interfaces.find(i => i.name === parsedPath);
         else if (thisDocsType === "typeAliases") thisDocsData = parsedDocs.typeAliases;
 
-        console.log(thisDocsData);
-
         // Set docs data
         setDocsData(thisDocsData);
         setDocsType(thisDocsType);
@@ -91,8 +89,6 @@ const Docs = () => {
 
             // Fetch docs
             const fetchedDocs = await fetchDocs();
-
-            console.log(fetchedDocs);
 
             // Set docs
             setDocs(fetchedDocs);
