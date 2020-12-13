@@ -28,6 +28,9 @@
             // Docs
             if (/docs\/(.*)/.test(url.pathname)) return app.render(req, res, "/docs", url.query);
 
+            // Guides
+            if (/guide\/(.*)/.test(url.pathname)) return app.render(req, res, "/guide", url.query);
+
             // Handle reqest
             handler(req, res, url);
         }
