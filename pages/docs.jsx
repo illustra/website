@@ -18,6 +18,9 @@ const Docs = () => {
     // Set path
     const setPath = (path, parsedDocs = docs) => {
 
+        // Default path
+        if (path === "/") path = "/classes/Document";
+
         // Set url
         window.history.pushState(null, null, `/docs${path}`);
 
@@ -210,10 +213,10 @@ const Docs = () => {
                                             </div>
 
                                             {m.returnType && (
-                                                <>
-                                                    <p className="returns"><span className="highlight">Returns</span> {typeString(m.returnType)}</p>
+                                                <div className="returns">
+                                                    <p className="returns-text"><span className="highlight">Returns</span> {typeString(m.returnType)}</p>
                                                     <ReactMarkdown source={m.returnComment} className="comment small" />
-                                                </>
+                                                </div>
                                             )}
 
                                         </div>

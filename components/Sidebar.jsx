@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import TypeIcon from "./TypeIcon";
 import "./sidebar.scss";
 
 const Sidebar = props => {
@@ -14,19 +13,29 @@ const Sidebar = props => {
     };
 
     return (
-        <div id="sidebar" className={sidebarOpen && "open"}>
+        <div id="sidebar">
 
-            <p className="sidebar-title">{props.title}</p>
-
-            <div className="divider" />
-
-            <div className="search">
-                <p className="search-title">Search</p>
-                <input type="text" className="search-bar" onInput={e => search(e.target.value)} />
+            <div className={`sidebar-menu-button ${sidebarOpen && "open"}`} onClick={() => setSidebarOpen(!sidebarOpen)}>
+                <div className="line" />
+                <div className="line" />
+                <div className="line" />
             </div>
 
-            <div className="pages">
-                {props.content}
+            <div className={`sidebar-content ${sidebarOpen && "open"}`}>
+
+                <p className="sidebar-title">{props.title}</p>
+
+                <div className="divider" />
+
+                <div className="search">
+                    <p className="search-title">Search</p>
+                    <input type="text" className="search-bar" onInput={e => search(e.target.value)} />
+                </div>
+
+                <div className="pages">
+                    {props.content}
+                </div>
+
             </div>
 
         </div>

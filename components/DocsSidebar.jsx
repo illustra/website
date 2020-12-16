@@ -14,7 +14,6 @@ const DocsSidebar = props => (
                     <button onClick={() => props.setPath(`/classes/${c.name}`)}><div className="sidebar-item">
                         <TypeIcon letter="C" />
                         <p className="name">{c.name}</p>
-                        <img src="/assets/expand.svg" className="expand" />
                     </div></button>
                 ))}
 
