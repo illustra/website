@@ -6,12 +6,6 @@ const Sidebar = props => {
     // Sidebar open
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
-    // Search
-    const search = input => {
-
-        //
-    };
-
     return (
         <div id="sidebar">
 
@@ -29,7 +23,7 @@ const Sidebar = props => {
 
                 <div className="search">
                     <p className="search-title">Search</p>
-                    <input type="text" className="search-bar" onInput={e => search(e.target.value)} />
+                    <input type="text" className="search-bar" onInput={e => props.search(e.target.value)} />
                 </div>
 
                 <div className="pages">

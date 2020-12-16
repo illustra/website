@@ -1,48 +1,96 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import TypeIcon from "./TypeIcon";
 
-const DocsSidebar = props => (
-    <Sidebar
-        title="Documentation"
-        content={props.docs && (
-            <>
+const DocsSidebar = props => {
 
-                <p className="sidebar-section-title">Classes</p>
+    // Search query
+    const [searchQuery, setSearchQuery] = useState("");
 
-                {props.docs.classes.map(c => (
-                    <button onClick={() => props.setPath(`/classes/${c.name}`)}><div className="sidebar-item">
-                        <TypeIcon letter="C" />
-                        <p className="name">{c.name}</p>
-                    </div></button>
-                ))}
+    // Search filter
+    const searchFilter = item => {
 
-                <p className="sidebar-section-title">Functions</p>
+        // Get names
+        const itemName = item.name.toLowerCase().replace(/\s+/g, "");
+        const searchQueryName = searchQuery.toLowerCase().replace(/\s+/g, "");
 
-                <button onClick={() => props.setPath("/functions")}><div className="sidebar-item">
-                    <TypeIcon letter="F" />
-                    <p className="name">Functions</p>
-                </div></button>
+        // Return
+        return itemName.includes(searchQueryName) || searchQueryName.includes(itemName);
+    };
 
-                <p className="sidebar-section-title">Interfaces</p>
+    // Get items
+    const classes = props.docs && props.docs.classes.filter(searchFilter);
+    const functions = props.docs && [{ name: "Functions" }].filter(searchFilter);
+    const interfaces = props.docs && props.docs.interfaces.filter(searchFilter);
+    const typeAliases = props.docs && [{ name: "Type Aliases" }].filter(searchFilter);
 
-                {props.docs.interfaces.map(i => (
-                    <button onClick={() => props.setPath(`/interfaces/${i.name}`)}><div className="sidebar-item">
-                        <TypeIcon letter="I" />
-                        <p className="name">{i.name}</p>
-                    </div></button>
-                ))}
+    return (
+        <Sidebar
+            title="Documentation"
+            content={props.docs && (
+                <>
 
-                <p className="sidebar-section-title">Type Aliases</p>
+                    {classes && classes.length && (
+                        <>
 
-                <button onClick={() => props.setPath("/typeAliases")}><div className="sidebar-item">
-                    <TypeIcon letter="T" />
-                    <p className="name">Type Aliases</p>
-                </div></button>
+                            <p className="sidebar-section-title">Classes</p>
 
-            </>
-        )}
-    />
-);
+                            {classes.map(c => (
+                                <button onClick={() => props.setPath(`/classes/${c.name}`)}><div className="sidebar-item">
+                                    <TypeIcon letter="C" />
+                                    <p className="name">{c.name}</p>
+                                </div></button>
+                            ))}
+
+                        </>
+                    )}
+
+                    {functions && functions.length && (
+                        <>
+
+                            <p className="sidebar-section-title">Functions</p>
+
+                            <button onClick={() => props.setPath("/functions")}><div className="sidebar-item">
+                                <TypeIcon letter="F" />
+                                <p className="name">Functions</p>
+                            </div></button>
+
+                        </>
+                    )}
+
+                    {interfaces && interfaces.length && (
+                        <>
+
+                            <p className="sidebar-section-title">Interfaces</p>
+
+                            {interfaces.map(i => (
+                                <button onClick={() => props.setPath(`/interfaces/${i.name}`)}><div className="sidebar-item">
+                                    <TypeIcon letter="I" />
+                                    <p className="name">{i.name}</p>
+                                </div></button>
+                            ))}
+
+                        </>
+                    )}
+
+                    {typeAliases && typeAliases.length && (
+                        <>
+
+                            <p className="sidebar-section-title">Type Aliases</p>
+
+                            <button onClick={() => props.setPath("/typeAliases")}><div className="sidebar-item">
+                                <TypeIcon letter="T" />
+                                <p className="name">Type Aliases</p>
+                            </div></button>
+
+                        </>
+                    )}
+
+                </>
+            )}
+            search={setSearchQuery}
+        />
+    );
+};
 
 export default DocsSidebar;

@@ -13,6 +13,9 @@ const GuidesSidebar = props => {
     // Guides Data
     const [guidesData, setGuidesData] = useState();
 
+    // Search query
+    const [searchQuery, setSearchQuery] = useState("");
+
     // On load
     useEffect(() => {
         (async () => {
@@ -27,10 +30,29 @@ const GuidesSidebar = props => {
         })();
     }, []);
 
+    // Get guides
+    let guides;
+    if (guidesData) {
+
+        guides = JSON.parse(JSON.stringify(guidesData));
+
+        guides.forEach(d => d.guides = d.guides.filter(g => {
+
+            // Get names
+            const itemName = g.title.toLowerCase().replace(/\s+/g, "");
+            const searchQueryName = searchQuery.toLowerCase().replace(/\s+/g, "");
+
+            // Return
+            return itemName.includes(searchQueryName) || searchQueryName.includes(itemName);
+        }));
+
+        guides = guides.filter(d => d.guides.length);
+    }
+
     return (
         <Sidebar
             title="Guides"
-            content={guidesData && guidesData.map(d => (
+            content={guides && guides.map(d => (
                 <>
 
                     <p className="sidebar-section-title">{d.name}</p>
@@ -39,6 +61,7 @@ const GuidesSidebar = props => {
 
                 </>
             ))}
+            search={setSearchQuery}
         />
     );
 };
