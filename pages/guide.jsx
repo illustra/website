@@ -11,21 +11,18 @@ const Guide = () => {
 
     // Guide
     const [guide, setGuide] = useState();
+    const [guideData, setGuideData] = useState();
 
     // On load
     useEffect(() => {
         (async () => {
 
             // Fetch guide
-            let fetchedGuide = await fetch(`https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/${window.location.href.split("/guide")[1]}.md`);
+            let fetchedGuide = await fetch(`https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/${window.location.href.split("/guide/")[1]}.md`);
             fetchedGuide = await fetchedGuide.text();
 
             // Set guide
-            setGuide({
-                title: fetchedGuide.split("(")[0].trim(),
-                icon: fetchedGuide.split("(")[1].split(")")[0],
-                content: fetchedGuide.split("\n").slice(1).join("\n")
-            });
+            setGuide(fetchedGuide);
         })();
     }, []);
 
@@ -38,20 +35,20 @@ const Guide = () => {
             />
             <NavBar />
 
-            <GuidesSidebar />
+            <GuidesSidebar setGuidesData={data => setGuideData(data.map(d => d.guides).flat().find(g => g.slug === window.location.href.split("/guide/")[1]))} />
 
-            {guide && (
+            {guide && guideData && (
                 <div className="content">
 
                     <div className="title">
-                        <img className="icon" src={guide.icon} />
-                        <p className="text">{guide.title}</p>
+                        <img className="icon" src={`/assets/guides/${guideData.icon}.svg`} />
+                        <p className="text">{guideData.title}</p>
                     </div>
 
                     <div className="divider" />
 
                     <ReactMarkdown
-                        source={guide.content}
+                        source={guide}
                         className="guide-content"
                         linkTarget="_blank"
                         renderers={{
