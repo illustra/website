@@ -21,6 +21,9 @@ const Guide = () => {
             let fetchedGuide = await fetch(`https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/${window.location.href.split("/guide/")[1]}.md`);
             fetchedGuide = await fetchedGuide.text();
 
+            // Invalid guide
+            if (fetchedGuide === "404: Not Found") return window.location = "/guides";
+
             // Set guide
             setGuide(fetchedGuide);
         })();
