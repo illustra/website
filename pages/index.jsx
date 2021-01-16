@@ -84,11 +84,11 @@ const Index = () => {
 
                                 <p className="title">Document Based</p>
 
-                                <p className="description">Illustra is modeled similar to Adobe's Photoshop. This provides a familiar structure that's easy to work with. Illustra uses the concept of <a href="/docs/Document">Documents</a> and <a href="/docs/Layer">Layers</a> to let you organize your canvas however you need.</p>
+                                <p className="description">Illustra is modeled similar to Adobe's Photoshop. This provides a familiar structure that's easy to work with. Illustra uses the concept of <a href="/docs/classes/Document">Documents</a> and <a href="/docs/classes/BaseLayer">Layers</a> to let you organize your canvas however you need.</p>
 
                                 <div className="learn-more">
                                     <p className="text">Learn more</p>
-                                    <a href="/guides/documents-and-layers" className="button">Documents and Layers</a>
+                                    <a href="/guide/documents-and-layers" className="button">Documents and Layers</a>
                                 </div>
 
                             </div>
@@ -106,7 +106,7 @@ const Index = () => {
 
                                 <p className="title">High Level</p>
 
-                                <p className="description">Illustra comes with plenty of utility functions and high level APIs, like the <a href="/docs/Layer#align"><code>Layer.align()</code></a> method to make development easy. Illustra also takes care of simple yet important things, like automatic overflow when overlaying images - something some image processing libraries leave out.</p>
+                                <p className="description">Illustra comes with plenty of utility functions and high level APIs, like the <a href="/docs/classes/BaseLayer#align"><code>Layer.align()</code></a> method to make development easy. Illustra also takes care of simple yet important things, like automatic overflow when overlaying images - something some image processing libraries leave out.</p>
 
                                 <div className="learn-more">
                                     <p className="text">Learn more</p>
@@ -130,11 +130,11 @@ const Index = () => {
                                 <p className="title">Clipping Masks</p>
 
                                 <p className="description">Illustra supports Clipping Masks, allowing you to create a mask to use on another layer. Clipping Masks work the same way they do in Photoshop and can be used to hide parts of another layer.</p>
-                                <p className="description">Illustra also provides utility methods that use Clipping Masks internally, such as the <a href="/docs/Layer#rectangularMask"><code>Layer.rectangularMask()</code></a> and <a href="/docs/Layer#ellipticalMask"><code>Layer.ellipticalMask()</code></a> methods.</p>
+                                <p className="description">Illustra also provides utility methods that use Clipping Masks internally, such as the <a href="/docs/classes/BaseLayer#circularMask"><code>BaseLayer.circularMask()</code></a> method.</p>
 
                                 <div className="learn-more">
                                     <p className="text">Learn more</p>
-                                    <a href="/guides/clipping-masks" className="button">Clipping Masks</a>
+                                    <a href="/guide/clipping-masks" className="button">Clipping Masks</a>
                                 </div>
 
                             </div>
