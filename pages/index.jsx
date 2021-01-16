@@ -94,7 +94,7 @@ const Index = () => {
                             </div>
                         )}
                         right={(
-                            <img src="/assets/document-based" alt="Document based" className="image" />
+                            <img src="/assets/document-based.svg" alt="Document based" className="image" />
                         )}
                     />
                 </div>
@@ -116,7 +116,7 @@ const Index = () => {
                             </div>
                         )}
                         right={(
-                            <img src="/assets/high-level" alt="High level" className="image" />
+                            <img src="/assets/high-level.svg" alt="High level" className="image" />
                         )}
                         reflected={true}
                     />
@@ -140,7 +140,7 @@ const Index = () => {
                             </div>
                         )}
                         right={(
-                            <img src="/assets/clipping-masks" alt="Clipping masks" className="image" />
+                            <img src="/assets/clipping-masks.svg" alt="Clipping masks" className="image" />
                         )}
                     />
                 </div>
