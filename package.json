@@ -1,6 +1,5 @@
 {
     "name": "illustra-website",
-    "private": true,
     "description": "The Illustra website",
     "version": "0.1.0",
     "scripts": {

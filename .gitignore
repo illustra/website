@@ -8,5 +8,8 @@ node_modules/
 public.pem
 private.key
 
+# Deploy Key
+deploy_key
+
 # Next.JS
 .next

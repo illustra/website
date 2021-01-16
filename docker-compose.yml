@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  illustra-website:
+    container_name: illustra-website
+    image: node:12
+    build: .
+    restart: always
+    ports:
+      - "3003:3003"
+    volumes:
+      - /var/illustra-website/.env:/illustra-website/.env
+      - /var/illustra-website/public.pem:/illustra-website/public.pem
+      - /var/illustra-website/private.key:/illustra-website/private.key
