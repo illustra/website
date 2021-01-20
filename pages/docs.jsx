@@ -13,7 +13,6 @@ const Docs = () => {
     const [docs, setDocs] = useState();
     const [docsData, setDocsData] = useState();
     const [docsType, setDocsType] = useState();
-    const [jumpTo, setJumpTo] = useState();
 
     // Set path
     const setPath = (path, parsedDocs = docs) => {
@@ -44,7 +43,13 @@ const Docs = () => {
         // Set docs data
         setDocsData(thisDocsData);
         setDocsType(thisDocsType);
-        setJumpTo(path.split("#")[1]);
+
+        // Jump
+        const scrollToElement = document.querySelector(`[data-name="${path.split("#")[1]}"]`);
+        if (scrollToElement) window.scrollTo({
+            top: scrollToElement.getBoundingClientRect().top + window.pageYOffset - 100,
+            behavior: "smooth"
+        });
     };
 
     // Set jump
@@ -188,12 +193,12 @@ const Docs = () => {
 
                             </div>
 
-                            <div className="section">
+                            <div className="section" data-name="properties">
 
                                 <p className="name">Properties</p>
 
                                 {docsData.properties.filter(p => !p.private).map(p => (
-                                    <div className="property">
+                                    <div className="property" data-name={p.name}>
 
                                         <div className="property-name">
                                             <p className="section-item-name" onClick={() => setJump(p.name)}><span>{docsData.name}</span>.{p.name}{p.optional ? "?" : ""}</p>
@@ -213,12 +218,12 @@ const Docs = () => {
 
                             </div>
 
-                            <div className="section">
+                            <div className="section" data-name="methods">
 
                                 <p className="name">Methods</p>
 
                                 {docsData.methods.filter(m => !m.private).map(m => (
-                                    <div className="method">
+                                    <div className="method" data-name={m.name}>
 
                                         <p className="section-item-name" onClick={() => setJump(m.name)}><span>{docsData.name}</span>.{m.name}({m.parameters.length ? m.parameters.map(p => <span className="name-parameter">{p.name}{p.optional ? "?" : ""}</span>).reduce((e, acc) => [e, ", ", acc]) : null})</p>
 
