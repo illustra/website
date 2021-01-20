@@ -16,7 +16,8 @@ const fetchDocs = async () => {
         classes: [],
         functions: [],
         interfaces: [],
-        typeAliases: []
+        typeAliases: [],
+        references: {}
     };
 
     // Get `index.ts`
@@ -27,6 +28,9 @@ const fetchDocs = async () => {
 
         // Get target module
         const targetModule = getTarget(fetchedDocs, m);
+
+        // Add to references
+        if (m.name !== targetModule.name) data.references[m.name] = targetModule.name;
 
         // Parse
         if (targetModule.kindString === "Class") data.classes.push(parseClass(targetModule));

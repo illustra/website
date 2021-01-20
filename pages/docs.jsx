@@ -65,13 +65,21 @@ const Docs = () => {
         else if (type === "number") return <a className="type-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank">number</a>;
         else if (type === "boolean") return <a className="type-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank">boolean</a>;
         else if (type === "undefined") return <a className="type-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined" target="_blank">undefined</a>;
+        else if (type === "null") return <a className="type-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null" target="_blank">null</a>;
         else if (type === "Array") return <a className="type-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">Array</a>;
         else if (type === "Promise") return <a className="type-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">Promise</a>;
+        else if (type === "Buffer") return <a className="type-link" href="https://nodejs.org/api/buffer.html" target="_blank">Buffer</a>;
+        else if (type === "this") return "this";
+
+        // Parse reference
+        if (docs.references[type]) type = docs.references[type];
 
         // Custom type
         if (docs.classes.find(c => c.name === type)) return <p className="type-link" onClick={() => setPath(`/classes/${type}`)}>{type}</p>;
         else if (docs.interfaces.find(c => c.name === type)) return <p className="type-link" onClick={() => setPath(`/interfaces/${type}`)}>{type}</p>;
         else if (docs.typeAliases.find(c => c.name === type)) return <p className="type-link" onClick={() => setPath(`/typeAliases#${type}`)}>{type}</p>;
+
+        else return <p style={{ color: "white", backgroundColor: "red" }}>{type}</p>;
     };
 
     // Type string
