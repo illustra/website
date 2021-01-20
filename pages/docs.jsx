@@ -296,10 +296,10 @@ const Docs = () => {
                                             </div>
 
                                             {f.returnType && (
-                                                <>
-                                                    <p className="returns"><span className="highlight">Returns</span> {typeString(f.returnType)}</p>
+                                                <div className="returns">
+                                                    <p className="returns-text"><span className="highlight">Returns</span> {typeString(f.returnType)}</p>
                                                     <ReactMarkdown source={f.returnComment} className="comment small" />
-                                                </>
+                                                </div>
                                             )}
 
                                         </div>
