@@ -154,9 +154,15 @@ const Docs = () => {
                                     <div className="name" onClick={() => setJump("properties")}><p className="text">Properties</p></div>
 
                                     <div className="section-content">
+
                                         {docsData.properties.filter(p => !p.private).map(p => (
                                             <p className="section-item" onClick={() => setJump(p.name)}>{p.name}</p>
                                         ))}
+
+                                        {!docsData.properties.filter(p => !p.private).length && (
+                                            <p className="section-no-items">No Properties</p>
+                                        )}
+
                                     </div>
 
                                 </div>
@@ -166,9 +172,15 @@ const Docs = () => {
                                     <div className="name" onClick={() => setJump("methods")}><p className="text">Methods</p></div>
 
                                     <div className="section-content">
+
                                         {docsData.methods.filter(m => !m.private).map(m => (
                                             <p className="section-item" onClick={() => setJump(m.name)}>{m.name}</p>
                                         ))}
+
+                                        {!docsData.methods.filter(m => !m.private).length && (
+                                            <p className="section-no-items">No Methods</p>
+                                        )}
+
                                     </div>
 
                                 </div>
@@ -193,6 +205,10 @@ const Docs = () => {
 
                                     </div>
                                 ))}
+
+                                {!docsData.properties.filter(p => !p.private).length && (
+                                    <p className="section-no-items">No Properties</p>
+                                )}
 
                             </div>
 
@@ -232,6 +248,10 @@ const Docs = () => {
 
                                     </div>
                                 ))}
+
+                                {!docsData.methods.filter(m => !m.private).length && (
+                                    <p className="section-no-items">No Methods</p>
+                                )}
 
                             </div>
 

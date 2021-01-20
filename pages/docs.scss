@@ -116,6 +116,14 @@
                         margin: auto;
                         cursor: pointer;
                     }
+
+                    .section-no-items {
+                        display: inline-block;
+                        color: var(--text-color-light);
+                        font-family: "Apercu Pro";
+                        font-size: 20px;
+                        @include center;
+                    }
                 }
             }
         }
@@ -248,6 +256,14 @@
                         }
                     }
                 }
+            }
+
+            .section-no-items {
+                display: inline-block;
+                color: var(--text-color-light);
+                font-family: "Apercu Pro";
+                font-size: 20px;
+                margin: auto;
             }
         }
     }
