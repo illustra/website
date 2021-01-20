@@ -79,7 +79,8 @@ const Docs = () => {
         else if (docs.interfaces.find(c => c.name === type)) return <p className="type-link" onClick={() => setPath(`/interfaces/${type}`)}>{type}</p>;
         else if (docs.typeAliases.find(c => c.name === type)) return <p className="type-link" onClick={() => setPath(`/typeAliases#${type}`)}>{type}</p>;
 
-        else return <p style={{ color: "white", backgroundColor: "red" }}>{type}</p>;
+        // None
+        else return type;
     };
 
     // Type string
@@ -90,7 +91,7 @@ const Docs = () => {
         else if (type.type === "union") return <p className="type-group">{type.data.map(t => typeString(t)).reduce((e, acc) => [e, " | ", acc])}</p>;
         else if (type.type === "array") return <p className="type-group">{typeString(type.data)}[]</p>;
         else if (type.type === "reference") return <p className="type-group">{type.arguments ? <span>{typeLink(type.data)}&lt;{type.arguments.map(t => typeString(t)).reduce((e, acc) => [e, ", ", acc])}&gt;</span> : typeLink(type.data)}</p>;
-        else if (type.type === "typeParameter") return <p className="type-group">{typeLink(type.data)}</p>;
+        else if (type.type === "typeParameter") return <p className="type-group">{typeLink(type.extends.data)}</p>;
         else if (type.type === "stringLiteral") return type.data;
         else if (type.type === "booleanLiteral") return type.data;
     };
