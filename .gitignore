@@ -13,3 +13,6 @@ deploy_key
 
 # Next.JS
 .next
+
+# DS_Store
+.DS_Store
