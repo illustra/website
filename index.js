@@ -29,7 +29,7 @@
             if (/docs\/(.*)/.test(url.pathname)) return app.render(req, res, "/docs", url.query);
 
             // Guides
-            if (/guide\/(.*)/.test(url.pathname)) return app.render(req, res, "/guide", url.query);
+            if (/^\/guides\/(.*)/.test(url.pathname)) return app.render(req, res, "/guides", url.query);
 
             // Handle reqest
             handler(req, res, url);

@@ -1,11 +1,9 @@
 import React from "react";
+import { Guides } from "@apixelvisuals/typedoc-frontend";
 import Head from "../components/Head";
 import NavBar from "../components/NavBar";
-import GuidesSidebar from "../components/GuidesSidebar";
-import Guide from "../components/Guide";
-import "./guides.scss";
 
-const Guides = () => (
+const GuidesPage = () => (
     <div id="guides">
 
         <Head
@@ -14,142 +12,135 @@ const Guides = () => (
         />
         <NavBar />
 
-        <GuidesSidebar />
-
-        <div className="content">
-
-            <div className="title">
-                <img className="icon" src="/assets/page-pink.svg" />
-                <p className="text">Guides</p>
-            </div>
-
-            <div className="divider" />
-
-            <p className="guide-section-title">Basics</p>
-
-            <div className="guide-section basics">
-
-                <Guide
-                    title="Documents and Layers"
-                    description="Learn how to manage layers and how you can use documents to organize them"
-                    icon="file"
-                    slug="documents-and-layers"
-                    className="main-small"
-                />
-
-                <Guide
-                    title="Getting Started"
-                    description="The basics you need to know to start using Illustra"
-                    icon="star"
-                    slug="getting-started"
-                    className="main"
-                />
-
-                <Guide
-                    title="Transformations"
-                    description="Learn how you can move, rotate, reflect, and align layers"
-                    icon="transform-arrows"
-                    slug="transformations"
-                    className="main-small"
-                />
-
-                <Guide
-                    title="Text Layers"
-                    description="Learn how to add text to your document and style it"
-                    icon="text"
-                    slug="text-layers"
-                    className="thin"
-                />
-
-                <Guide
-                    title="Shape Layers"
-                    description="Learn how to add shapes to your document and style them"
-                    icon="circle"
-                    slug="shape-layers"
-                    className="thin"
-                />
-
-            </div>
-
-            <p className="guide-section-title">Advanced Topics</p>
-
-            <div className="guide-section advanced-topics">
-
-                <Guide
-                    title="Clipping Masks"
-                    description="Learn how to create and use clipping masks with examples of what they can be used for"
-                    icon="scissors"
-                    slug="clipping-masks"
-                    className="main"
-                />
-
-                <Guide
-                    title="Blend Modes"
-                    description="Learn about mixing colors with blend modes"
-                    icon="blend"
-                    slug="blend-modes"
-                    className="main"
-                />
-
-            </div>
-
-            <p className="guide-section-title">Contributing</p>
-
-            <div className="guide-section contributing">
-
-                <Guide
-                    title="Best Practices"
-                    description="Get familiar with Illustra's best practices and code styling"
-                    icon="thumbs-up"
-                    slug="best-practices"
-                    className="main-small"
-                />
-
-                <Guide
-                    title="Contributing"
-                    description="Learn how you can contribute to Illustra's development"
-                    icon="heart"
-                    slug="contributing"
-                    className="main"
-                />
-
-                <Guide
-                    title="Internal Libraries"
-                    description="Learn about the libraries Illustra uses internally"
-                    icon="books"
-                    slug="internal-libraries"
-                    className="main-small"
-                />
-
-                <Guide
-                    title="Exporting Modules"
-                    description="Learn how Illustra handles exporting modules"
-                    icon="export"
-                    slug="exporting-modules"
-                    className="other"
-                />
-
-                <Guide
-                    title="Async with Constructors"
-                    description="Learn how Illustra handles the need for asynchronous constructors"
-                    icon="plus"
-                    slug="async-with-constructors"
-                    className="other"
-                />
-
-                <Guide
-                    title="Testing and Docs"
-                    description="Learn how we write tests and generate documentation"
-                    icon="vial"
-                    slug="testing-and-docs"
-                    className="other last"
-                />
-
-            </div>
-
-        </div>
+        <Guides
+            icon="/assets/page-pink.svg"
+            sections={[
+                {
+                    name: "Basics",
+                    className: "basics",
+                    guides: [
+                        {
+                            name: "Documents and Layers",
+                            description: "Learn how to manage layers and how you can use documents to organize them",
+                            icon: "/assets/guides/file.svg",
+                            slug: "documents-and-layers",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/documents-and-layers.md",
+                            className: "main-small"
+                        },
+                        {
+                            name: "Getting Started",
+                            description: "The basics you need to know to start using Illustra",
+                            icon: "/assets/guides/star.svg",
+                            slug: "getting-started",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/getting-started.md",
+                            className: "main"
+                        },
+                        {
+                            name: "Transformations",
+                            description: "Learn how you can move, rotate, reflect, and align layers",
+                            icon: "/assets/guides/transform-arrows.svg",
+                            slug: "transformations",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/transformations.md",
+                            className: "main-small"
+                        },
+                        {
+                            name: "Text Layers",
+                            description: "Learn how to add text to your document and style it",
+                            icon: "/assets/guides/text.svg",
+                            slug: "text-layers",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/text-layers.md",
+                            className: "thin"
+                        },
+                        {
+                            name: "Shape Layers",
+                            description: "Learn how to add shapes to your document and style them",
+                            icon: "/assets/guides/circle.svg",
+                            slug: "shape-layers",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/shape-layers.md",
+                            className: "thin"
+                        }
+                    ]
+                },
+                {
+                    name: "Advanced Topics",
+                    className: "advanced-topics",
+                    guides: [
+                        {
+                            name: "Clipping Masks",
+                            description: "Learn how to create and use clipping masks with examples of what they can be used for",
+                            icon: "/assets/guides/scissors.svg",
+                            slug: "clipping-masks",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/clipping-masks.md",
+                            className: "main"
+                        },
+                        {
+                            name: "Blend Modes",
+                            description: "Learn about mixing colors with blend modes",
+                            icon: "/assets/guides/blend.svg",
+                            slug: "blend-modes",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/blend-modes.md",
+                            className: "main"
+                        }
+                    ]
+                },
+                {
+                    name: "Contributing",
+                    className: "contributing",
+                    guides: [
+                        {
+                            name: "Best Practices",
+                            description: "Get familiar with Illustra's best practices and code styling",
+                            icon: "/assets/guides/thumbs-up.svg",
+                            slug: "best-practices",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/best-practices.md",
+                            className: "main-small"
+                        },
+                        {
+                            name: "Contributing",
+                            description: "Learn how you can contribute to Illustra's development",
+                            icon: "/assets/guides/heart.svg",
+                            slug: "contributing",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/contributing.md",
+                            className: "main"
+                        },
+                        {
+                            name: "Internal Libraries",
+                            description: "Learn about the libraries Illustra uses internally",
+                            icon: "/assets/guides/books.svg",
+                            slug: "internal-libraries",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/internal-libraries.md",
+                            className: "main-small"
+                        },
+                        {
+                            name: "Exporting Modules",
+                            description: "Learn how Illustra handles exporting modules",
+                            icon: "/assets/guides/export.svg",
+                            slug: "exporting-modules",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/exporting-modules.md",
+                            className: "other"
+                        },
+                        {
+                            name: "Async with Constructors",
+                            description: "Learn how Illustra handles the need for asynchronous constructors",
+                            icon: "/assets/guides/plus.svg",
+                            slug: "async-with-constructors",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/async-with-constructors.md",
+                            className: "other"
+                        },
+                        {
+                            name: "Testing and Docs",
+                            description: "Learn how we write tests and generate documentation",
+                            icon: "/assets/guides/vial.svg",
+                            slug: "testing-and-docs",
+                            url: "https://raw.githubusercontent.com/APixelVisuals/illustra/master/guides/testing-and-docs.md",
+                            className: "other last"
+                        }
+                    ]
+                }
+            ]}
+        />
 
     </div>
 );
 
-export default Guides;
+export default GuidesPage;
