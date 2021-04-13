@@ -138,6 +138,15 @@ const GuidesPage = () => (
                     ]
                 }
             ]}
+            colors={{
+                background: "#252550",
+                backgroundDark: "#171731",
+                primary: "#574ae2",
+                accent: "#f63e70",
+                text: "#7c72eb",
+                textLight: "#978fee",
+                textLighter: "#ada9e4"
+            }}
         />
 
     </div>

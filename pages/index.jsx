@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import InlineSVG from "react-inlinesvg";
+import { Codeblock } from "@apixelvisuals/typedoc-frontend";
 import Head from "../components/Head";
 import NavBar from "../components/NavBar";
 import HorizontalComponent from "../components/HorizontalComponent";
-import Codeblock from "../components/Codeblock";
 import "./index.scss";
 
 const Index = () => {
@@ -70,6 +70,15 @@ const Index = () => {
                             width="85%"
                             height="60vh"
                             content={`import { Document } from "illustra";\n\nexport default async function banner() {\n\n    // Create document\n    const document = new Document({\n        name: "Banner",\n        width: 1500,\n        height: 500\n    });\n\n    // Add background\n    const bg = await document.createLayer({\n        name: "background",\n        file: "src/assets/background.png"\n    });\n\n    // Add logo\n    const logo = await document.createLayer({\n        name: "logo",\n        file: "src/assets/logo.png",\n        top: 150,\n        left: 300\n    });\n\n    // Align logo to center\n    logo.align();\n\n    // Export\n    await document.exportTo("png", "file", "out/banner.png");\n}`}
+                            colors={{
+                                background: "#252550",
+                                backgroundDark: "#171731",
+                                primary: "#574ae2",
+                                accent: "#f63e70",
+                                text: "#7c72eb",
+                                textLight: "#978fee",
+                                textLighter: "#ada9e4"
+                            }}
                         />
                     )}
                 />

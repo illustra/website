@@ -12,7 +12,18 @@ const DocsPage = () => (
         />
         <NavBar />
 
-        <Docs url="https://raw.githubusercontent.com/APixelVisuals/illustra/master/docs/docs.json" />
+        <Docs
+            url="https://raw.githubusercontent.com/APixelVisuals/illustra/master/docs/docs.json"
+            colors={{
+                background: "#252550",
+                backgroundDark: "#171731",
+                primary: "#574ae2",
+                accent: "#f63e70",
+                text: "#7c72eb",
+                textLight: "#978fee",
+                textLighter: "#ada9e4"
+            }}
+        />
 
     </div>
 );

@@ -60,6 +60,12 @@ button {
     background-color: white;
 }
 
+.codeblock-content {
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--primary-color);
+    }
+}
+
 // Image alt text
 img {
     color: white;
