@@ -2,6 +2,7 @@ import React from "react";
 import { Guides } from "@apixelvisuals/typedoc-frontend";
 import Head from "../components/Head";
 import NavBar from "../components/NavBar";
+import "./guides.scss";
 
 const GuidesPage = () => (
     <div id="guides">
