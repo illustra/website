@@ -77,7 +77,8 @@ const Index = () => {
                                 accent: "#f63e70",
                                 text: "#7c72eb",
                                 textLight: "#978fee",
-                                textLighter: "#ada9e4"
+                                textLighter: "#ada9e4",
+                                codeblockBackground: "#7c72eb45"
                             }}
                         />
                     )}

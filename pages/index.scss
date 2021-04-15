@@ -154,7 +154,7 @@
                 code {
                     font-family: "Apercu Pro Mono";
                     font-size: 16px;
-                    background-color: #7c72eb45;
+                    background-color: var(--codeblock-background-color);
                     border-radius: 5px;
                     padding: 2px 7px;
                 }
