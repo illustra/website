@@ -1,2 +1,2 @@
 # Illustra Website
-The [Illustra](https://github.com/APixelVisuals/illustra) website.
+The [Illustra](https://github.com/illustra/illustra) website.
