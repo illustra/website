@@ -4,10 +4,9 @@ WORKDIR /illustra-website
 
 COPY . .
 
-RUN npm install
-
-RUN npm run build
+RUN yarn
+RUN yarn build
 
 EXPOSE 3003
 
-CMD ["node", "index.js"]
+CMD ["yarn", "start"]
