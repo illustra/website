@@ -1,42 +1,11 @@
-@import "../global";
+// Mixins
+@mixin center {
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+}
 
-@import "./textLogoAnimation";
-
-#index {
-    &.logo-animating {
-        height: 100vh;
-        overflow-y: hidden;
-    }
-
-    .animation {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        top: 0px;
-        left: 0px;
-        background-color: black;
-        z-index: 200;
-        animation: animationFade 1s 5s ease-out forwards;
-
-        @keyframes animationFade {
-            100% {
-                opacity: 0;
-            }
-        }
-
-        #Layer_1 {
-            width: 80%;
-            max-width: 80%;
-            height: auto;
-            margin-top: 45vh;
-            margin-bottom: -25vh;
-            margin-left: 50%;
-            transform: translate(-50%, -25vh);
-            @include textLogoAnimation;
-        }
-    }
-
-    .intro-wrapper {
+.index {
+    .intro_wrapper {
         width: 100%;
         height: calc(100vh - 65px);
         margin-top: 65px;
@@ -82,7 +51,7 @@
                     flex-direction: column;
                 }
 
-                .main-button {
+                .main_button {
                     color: white;
                     font-family: "Apercu Pro";
                     font-size: 20px;
@@ -114,7 +83,7 @@
         }
     }
 
-    .feature-wrapper {
+    .feature_wrapper {
         width: 100%;
         height: calc(100vh - 65px);
         margin-top: 65px;
@@ -160,7 +129,7 @@
                 }
             }
 
-            .learn-more {
+            .learn_more {
                 display: inline-block;
                 margin-top: 65px;
                 @include center;
@@ -204,7 +173,7 @@
         margin-bottom: -10px;
     }
 
-    .bottom-links {
+    .bottom_links {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;

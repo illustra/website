@@ -1,11 +1,10 @@
 import React from "react";
 import { Guides } from "@apixelvisuals/typedoc-frontend";
-import Head from "../components/Head";
-import NavBar from "../components/NavBar";
-import "./guides.scss";
+import Head from "../../components/Head";
+import NavBar from "../../components/NavBar";
 
 const GuidesPage = () => (
-    <div id="guides">
+    <>
 
         <Head
             title="Guides - Illustra"
@@ -151,7 +150,7 @@ const GuidesPage = () => (
             }}
         />
 
-    </div>
+    </>
 );
 
 export default GuidesPage;
